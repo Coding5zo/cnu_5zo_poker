@@ -32,6 +32,8 @@ public class Evaluator {
         }
 
         if (getFlush(suitMap)) return Genealogy.FLUSH;
+        if(getOnePair(integerMap)) return Genealogy.ONE_PAIR;
+
         return Genealogy.NOTHING;
     }
 
@@ -41,6 +43,10 @@ public class Evaluator {
         }
         return false;
     }
-
-
+    private boolean getOnePair(Map<Integer, Integer> integerMap) {
+        for(Integer key : integerMap.keySet()){
+            return integerMap.get(key) == 2;
+        }
+        return false;
+    }
 }
