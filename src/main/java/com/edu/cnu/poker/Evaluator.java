@@ -36,8 +36,18 @@ public class Evaluator {
         if(getTriple(integerMap)) return Genealogy.TRIPLE;
         if(getTwoPair(integerMap)) return Genealogy.TWO_PAIR;
         if(getOnePair(integerMap)) return Genealogy.ONE_PAIR;
+        if(getMountain(integerMap)) return Genealogy.MOUNTAIN;
+        if(getBackStraight(integerMap)) return Genealogy.BACK_STRAIGHT;
 
         return Genealogy.NOTHING;
+    }
+
+    private boolean getBackStraight(Map<Integer, Integer> integerMap){
+        return integerMap.containsKey(1) && integerMap.containsKey(2) && integerMap.containsKey(3) && integerMap.containsKey(4) && integerMap.containsKey(5);
+    }
+
+    private boolean getMountain(Map<Integer, Integer> integerMap){
+        return integerMap.containsKey(10) && integerMap.containsKey(11) &&integerMap.containsKey(12) && integerMap.containsKey(13) && integerMap.containsKey(1);
     }
 
     private boolean getFlush(Map<Suit, Integer> suitMap) {
