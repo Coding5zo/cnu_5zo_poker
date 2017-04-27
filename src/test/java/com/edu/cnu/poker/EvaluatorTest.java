@@ -40,7 +40,7 @@ public class EvaluatorTest {
         int result = evaluator.evaluate(cardList).getPriority();
         assertThat(result, is(4));
     }
-    
+
     @Test
     public void SUIT가_5개가동일하면_플러쉬다(){
         Evaluator evaluator = new Evaluator();

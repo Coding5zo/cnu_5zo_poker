@@ -31,14 +31,23 @@ public class Evaluator {
             }
         }
 
-        if (getFlush(suitMap)) return Genealogy.FLUSH;
+        if(getFlush(suitMap)) return Genealogy.FLUSH;
+        
         return Genealogy.NOTHING;
     }
 
-        private boolean getFlush(Map<Suit, Integer> suitMap) {
-            for(Suit key : suitMap.keySet()){
-                return suitMap.get(key) == 5;
-            }
-            return false;
+    private boolean getFlush(Map<Suit, Integer> suitMap) {
+        for(Suit key : suitMap.keySet()){
+            return suitMap.get(key) == 5;
         }
+        return false;
+    }
+
+    private boolean getTriple(Map<Integer, Integer> integerMap) {
+        for(Integer key : integerMap.keySet()){
+            return integerMap.get(key) == 3;
+        }
+        return false;
+    }
+
     }
