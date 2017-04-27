@@ -44,6 +44,16 @@ public class Hand {
         return this.cardList;
     }
 
+    public void showACard(int index){
+        if(this.cardList.size() < index){
+            System.out.println("잘못된 index번호입니다.");
+        }
+        else {
+            System.out.println("SUIT : " + this.cardList.get(index).getSuit());
+            System.out.println("RANK : " + this.cardList.get(index).getRank());
+        }
+    }
+
 
 
 
