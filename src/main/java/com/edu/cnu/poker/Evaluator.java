@@ -44,6 +44,22 @@ public class Evaluator {
         return false;
     }
 
+    private boolean getStraight(Map<Integer, Integer> integerMap){
+        int min = 14;
+        int max = 0;
+
+        for(int key : integerMap.keySet()){
+            if(integerMap.get(key) >= 2){
+                return false;
+            }
+            if(integerMap.get(key) == 1){
+                min = min < key? min : key;
+                max = max > key? max : key;
+            }
+        }
+        return max - min == 4;
+    }
+
     private boolean getTriple(Map<Integer, Integer> integerMap) {
         for(Integer key : integerMap.keySet()){
             return integerMap.get(key) == 3;

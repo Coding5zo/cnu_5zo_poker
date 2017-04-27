@@ -40,7 +40,7 @@ public class EvaluatorTest {
         int result = evaluator.evaluate(cardList).getPriority();
         assertThat(result, is(4));
     }
-    
+
     @Test
     public void RANK가_5개연속이면_스트레이트다(){
         Evaluator evaluator = new Evaluator();
