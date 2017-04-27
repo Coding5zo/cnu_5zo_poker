@@ -23,4 +23,8 @@ public class Player {
     public Hand getHand(){
         return this.hand;
     }
+
+    public int getFund(){
+        return this.fund;
+    }
 }
