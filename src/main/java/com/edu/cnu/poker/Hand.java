@@ -40,6 +40,12 @@ public class Hand {
         System.out.println();
     }
 
+    public List<Card> getCardList(){
+        return this.cardList;
+    }
+
+
+
 
     public int getTotalCard(){
         return cardList.size();
