@@ -40,6 +40,14 @@ public class Evaluator {
         return Genealogy.NOTHING;
     }
 
+    private boolean getBackStraight(Map<Integer, Integer> integerMap){
+        return integerMap.containsKey(1) && integerMap.containsKey(2) && integerMap.containsKey(3) && integerMap.containsKey(4) && integerMap.containsKey(5);
+    }
+
+    private boolean getMountain(Map<Integer, Integer> integerMap){
+        return integerMap.containsKey(10) && integerMap.containsKey(11) &&integerMap.containsKey(12) && integerMap.containsKey(13) && integerMap.containsKey(1);
+    }
+
     private boolean getFlush(Map<Suit, Integer> suitMap) {
         for(Suit key : suitMap.keySet()){
             return suitMap.get(key) == 5;
