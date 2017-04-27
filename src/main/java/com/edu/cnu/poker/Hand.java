@@ -20,6 +20,12 @@ public class Hand {
         cardList = new ArrayList<Card>();
     }
 
+    public boolean drawACard(){
+        if(this.cardList.add((this.deck.drawCard())))
+            return true;
+        return false;
+    }
+
 
     public int getTotalCard(){
         return cardList.size();
