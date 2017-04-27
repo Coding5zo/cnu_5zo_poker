@@ -32,7 +32,8 @@ public class Evaluator {
         }
 
         if(getFlush(suitMap)) return Genealogy.FLUSH;
-        
+        if(getTriple(integerMap)) return Genealogy.TRIPLE;
+
         return Genealogy.NOTHING;
     }
 
