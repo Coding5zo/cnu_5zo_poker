@@ -36,6 +36,8 @@ public class Evaluator {
         if(getTriple(integerMap)) return Genealogy.TRIPLE;
         if(getTwoPair(integerMap)) return Genealogy.TWO_PAIR;
         if(getOnePair(integerMap)) return Genealogy.ONE_PAIR;
+        if(getMountain(integerMap)) return Genealogy.MOUNTAIN;
+        if(getBackStraight(integerMap)) return Genealogy.BACK_STRAIGHT;
 
         return Genealogy.NOTHING;
     }
