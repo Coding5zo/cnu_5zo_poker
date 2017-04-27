@@ -35,10 +35,12 @@ public class Evaluator {
         return Genealogy.NOTHING;
     }
 
-        private boolean getFlush(Map<Suit, Integer> suitMap) {
-            for(Suit key : suitMap.keySet()){
-                return suitMap.get(key) == 5;
-            }
-            return false;
+    private boolean getFlush(Map<Suit, Integer> suitMap) {
+        for(Suit key : suitMap.keySet()){
+            return suitMap.get(key) == 5;
         }
+        return false;
     }
+
+
+}
