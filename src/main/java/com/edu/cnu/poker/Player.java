@@ -11,5 +11,9 @@ public class Player {
         this.fund = 0;
         this.hand = null;
     }
+
+    public void setHand(Hand hand){
+        this.hand = hand;
+    }
     
 }
