@@ -19,4 +19,8 @@ public class Player {
     public void setFund(int fund){
         this.fund = fund;
     }
+
+    public Hand getHand(){
+        return this.hand;
+    }
 }
