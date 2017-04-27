@@ -40,4 +40,33 @@ public class EvaluatorTest {
         int result = evaluator.evaluate(cardList).getPriority();
         assertThat(result, is(8));
     }
+
+    @Test
+    public void 스트레이트면서_플러시면서_가장_낮으면_백스트레이트플러시다(){
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(2,Suit.CLUBS),
+                new Card(3,Suit.CLUBS),
+                new Card(4,Suit.CLUBS),
+                new Card(5,Suit.CLUBS),
+                new Card(1,Suit.CLUBS)
+        );
+        int result = evaluator.evaluate(cardList).getPriority();
+        assertThat(result, is(12));
+    }
+
+
+    @Test
+    public void 플레쉬이면서_마운틴이면_로얄스트레이트플러쉬다(){
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(10,Suit.SPADES),
+                new Card(11,Suit.SPADES),
+                new Card(12,Suit.SPADES),
+                new Card(13,Suit.SPADES),
+                new Card(1,Suit.SPADES)
+        );
+        int result = evaluator.evaluate(cardList).getPriority();
+        assertThat(result, is(13));
+    }
 }
