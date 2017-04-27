@@ -18,10 +18,8 @@ public class Hand {
         this.pokerType = pokerType;
         this.cardList = new ArrayList<Card>();
         cardList = new ArrayList<Card>();
-        for(int i = 0; i < pokerType.getNumberOfCard(); i ++){
-            cardList.add(deck.drawCard());
-        }
     }
+
 
     public int getTotalCard(){
         return cardList.size();
