@@ -17,7 +17,7 @@ public class CardTest {
     }
 
     @Test(expected = NoSuchRankException.class)
-    public void 카드의_램크는_13이하여야한다(){
+    public void 카드의_랭크는_13이하여야한다(){
         new Card(14, Suit.CLUBS);
     }
 }

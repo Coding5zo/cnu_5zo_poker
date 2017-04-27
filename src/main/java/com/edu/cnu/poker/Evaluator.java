@@ -9,24 +9,36 @@ import java.util.Map;
  */
 public class Evaluator {
 
-    public String evaluate(List<Card> cardList) {
-        Map<Suit, Integer> tempMap = new HashMap<Suit, Integer>();
+    public Genealogy evaluate(List<Card> cardList) {
+        Map<Suit, Integer> suitMap = new HashMap<Suit, Integer>();
+        Map<Integer, Integer> integerMap = new HashMap<Integer, Integer>();
 
-        for(Card card : cardList){
-            if(tempMap.containsKey(card.getSuit())){
-                Integer count = tempMap.get(card.getSuit());
-                count = new Integer(count.intValue() + 1);
-                tempMap.put(card.getSuit(), count);
+        for (Card card : cardList) {
+            if (suitMap.containsKey(card.getSuit())) {
+                Integer count = suitMap.get(card.getSuit());
+                count = count + 1;
+                suitMap.put(card.getSuit(), count);
             } else {
-                tempMap.put(card.getSuit(), new Integer(1));
+                suitMap.put(card.getSuit(), 1);
+            }
+
+            if (integerMap.containsKey(card.getRank())) {
+                Integer count = integerMap.get(card.getRank());
+                count = count + 1;
+                integerMap.put(card.getRank(), count);
+            } else {
+                integerMap.put(card.getRank(), 1);
             }
         }
 
-        for(Suit key : tempMap.keySet()){
-            if(tempMap.get(key) == 5){
-                return "FLUSH";
-            }
-        }
-        return "NOTHING";
+        if (getFlush(suitMap)) return Genealogy.FLUSH;
+        return Genealogy.NOTHING;
     }
-}
+
+        private boolean getFlush(Map<Suit, Integer> suitMap) {
+            for(Suit key : suitMap.keySet()){
+                return suitMap.get(key) == 5;
+            }
+            return false;
+        }
+    }
