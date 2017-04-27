@@ -31,7 +31,9 @@ public class Evaluator {
             }
         }
 
-        if (getFlush(suitMap)) return Genealogy.FLUSH;
+        if(getFlush(suitMap)) return Genealogy.FLUSH;
+        if(getStraight(integerMap)) return Genealogy.STRAIGHT;
+        if(getTriple(integerMap)) return Genealogy.TRIPLE;
         if(getTwoPair(integerMap)) return Genealogy.TWO_PAIR;
         if(getOnePair(integerMap)) return Genealogy.ONE_PAIR;
 
@@ -44,6 +46,30 @@ public class Evaluator {
         }
         return false;
     }
+  
+    private boolean getStraight(Map<Integer, Integer> integerMap){
+        int min = 14;
+        int max = 0;
+
+        for(int key : integerMap.keySet()){
+            if(integerMap.get(key) >= 2){
+                return false;
+            }
+            if(integerMap.get(key) == 1){
+                min = min < key? min : key;
+                max = max > key? max : key;
+            }
+        }
+        return max - min == 4;
+    }
+
+    private boolean getTriple(Map<Integer, Integer> integerMap) {
+        for(Integer key : integerMap.keySet()){
+            return integerMap.get(key) == 3;
+        }
+        return false;
+    }
+
     private boolean getTwoPair(Map<Integer, Integer> integerMap) {
         int count = 0;
         for(Integer key : integerMap.keySet()){
@@ -53,6 +79,7 @@ public class Evaluator {
         }
         return count == 2;
     }
+  
     private boolean getOnePair(Map<Integer, Integer> integerMap) {
         for(Integer key : integerMap.keySet()){
             return integerMap.get(key) == 2;
