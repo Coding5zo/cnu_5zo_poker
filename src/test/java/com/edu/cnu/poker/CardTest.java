@@ -1,9 +1,7 @@
 package com.edu.cnu.poker;
 
-import com.sun.corba.se.impl.corba.ExceptionListImpl;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 /**
