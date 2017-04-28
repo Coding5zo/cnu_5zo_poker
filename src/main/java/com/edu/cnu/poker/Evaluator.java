@@ -42,6 +42,14 @@ public class Evaluator {
         return Genealogy.NOTHING;
     }
 
+    private boolean getFourCard(Map<Integer, Integer> integerMap) {
+        for(Integer key : integerMap.keySet()){
+            if(integerMap.get(key) == 4)
+                return true;
+        }
+        return false;
+    }
+
     private boolean getFullHouse(Map<Integer, Integer> integerMap) {
         int triple = 0;
         int pair = 0;
