@@ -120,5 +120,18 @@ public class EvaluatorTest {
         int result = evaluator.evaluate(cardList).getPriority();
         assertThat(result, is(8));
     }
-
+    @Test
+    public void TRIPLE하나와_ONE_PAIR하나면_풀하우스다(){
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(1, Suit.CLUBS),
+                new Card(1, Suit.DIAMONDS),
+                new Card(1, Suit.HEARTS),
+                new Card(2, Suit.HEARTS),
+                new Card(2, Suit.DIAMONDS)
+        );
+        int result = evaluator.evaluate(cardList).getPriority();
+        assertThat(result,is(9));
+    }
+    
 }
