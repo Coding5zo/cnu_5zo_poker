@@ -84,7 +84,26 @@ public class PokerApplication {
             }
     }
     public static void playGame(Player you, Player com, int reward) {
+        Evaluator evaluator = new Evaluator();
+        you.getHand().drawACard();
+        you.getHand().drawACard();
 
+        System.out.println("YOU HAVE : " + evaluator.evaluate(you.getHand().getCardList()) + "\nCOMPUTER HAVE : " + evaluator.evaluate(com.getHand().getCardList()));
+        if(evaluator.evaluate(you.getHand().getCardList()).getPriority() < evaluator.evaluate(com.getHand().getCardList()).getPriority()){
+            System.out.println("YOU LOSE!!!");
+            com.setFund(com.getFund() + reward);
+        }
+        else if(evaluator.evaluate(you.getHand().getCardList()).getPriority() > evaluator.evaluate(com.getHand().getCardList()).getPriority()){
+            System.out.println("YOU WIN!!!");
+            you.setFund(you.getFund() + reward);
+        }
+        else{
+            System.out.println("DRAW...MONEY ROLLBACK");
+            you.setFund(you.getFund() + reward/2);
+            com.setFund(com.getFund() + reward/2);
+        }
+        System.out.println("YOUR MONEY : " + you.getFund());
+        System.out.println("COMPUTER'S MONEY : " + com.getFund());
     }
 
 }
