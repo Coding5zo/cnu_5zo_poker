@@ -42,6 +42,10 @@ public class Evaluator {
         return Genealogy.NOTHING;
     }
 
+    private boolean getRoyalStraightFlush(Map<Suit, Integer> suitMap, Map<Integer, Integer> integerMap){
+        return getFlush(suitMap) && getMountain(integerMap);
+    }
+
     private boolean getBackStraightFlush(Map<Suit, Integer> suitMap, Map<Integer, Integer> integerMap){
         return getFlush(suitMap) && getBackStraight(integerMap);
     }
