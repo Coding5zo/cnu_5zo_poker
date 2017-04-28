@@ -30,14 +30,20 @@ public class Evaluator {
                 integerMap.put(card.getRank(), 1);
             }
         }
-
+        
+        if(getRoyalStraightFlush(suitMap, integerMap)) return Genealogy.ROYAL_STRAIGHT_FLUSH;
+        if(getBackStraightFlush(suitMap, integerMap)) return Genealogy.BACK_STRAIGHT_FLUSH;
+        if(getStraightFlush(suitMap, integerMap)) return Genealogy.STRAIGHT_FLUSH;
+        if(getFourCard(integerMap)) return Genealogy.FOUR_CARD;
+        if(getFullHouse(integerMap)) return Genealogy.FULL_HOUSE;
         if(getFlush(suitMap)) return Genealogy.FLUSH;
+        if(getMountain(integerMap)) return Genealogy.MOUNTAIN;
+        if(getBackStraight(integerMap)) return Genealogy.BACK_STRAIGHT;
         if(getStraight(integerMap)) return Genealogy.STRAIGHT;
         if(getTriple(integerMap)) return Genealogy.TRIPLE;
         if(getTwoPair(integerMap)) return Genealogy.TWO_PAIR;
         if(getOnePair(integerMap)) return Genealogy.ONE_PAIR;
-        if(getMountain(integerMap)) return Genealogy.MOUNTAIN;
-        if(getBackStraight(integerMap)) return Genealogy.BACK_STRAIGHT;
+
 
         return Genealogy.NOTHING;
     }
