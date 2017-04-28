@@ -42,6 +42,10 @@ public class Evaluator {
         return Genealogy.NOTHING;
     }
 
+    private boolean getStraightFlush(Map<Suit, Integer> suitMap, Map<Integer, Integer> integerMap){
+        return getStraight(integerMap) && getFlush(suitMap);
+    }
+
     private boolean getFourCard(Map<Integer, Integer> integerMap) {
         for(Integer key : integerMap.keySet()){
             if(integerMap.get(key) == 4)
