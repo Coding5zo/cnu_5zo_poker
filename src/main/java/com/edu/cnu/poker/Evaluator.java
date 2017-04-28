@@ -42,6 +42,20 @@ public class Evaluator {
         return Genealogy.NOTHING;
     }
 
+    private boolean getFullHouse(Map<Integer, Integer> integerMap) {
+        int triple = 0;
+        int pair = 0;
+        for(int key : integerMap.keySet()){
+            if(integerMap.get(key) == 3){
+                triple = key;
+            }
+            if(integerMap.get(key) == 2){
+                pair = key;
+            }
+        }
+        return triple != 0 && pair != 0;
+    }
+
     private boolean getBackStraight(Map<Integer, Integer> integerMap){
         return integerMap.containsKey(1) && integerMap.containsKey(2) && integerMap.containsKey(3) && integerMap.containsKey(4) && integerMap.containsKey(5);
     }
