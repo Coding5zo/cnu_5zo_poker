@@ -66,11 +66,14 @@ public class PokerApplication {
                             System.out.println("######## Computer has not enough money ########");
                         else
                             break;
+
                     }
                     you.setFund(you.getFund()-bet_money);
                     com.setFund(com.getFund()-bet_money);
                     reward += 2 * bet_money;
                     System.out.println("Betted Money : " + reward);
+
+                    playGame(you, com, reward);
                 }
                 else if(choice.equals("D")) {
                     System.out.println("######## You Lose. Play next game. ########");
