@@ -133,5 +133,19 @@ public class EvaluatorTest {
         int result = evaluator.evaluate(cardList).getPriority();
         assertThat(result,is(9));
     }
-    
+
+    @Test
+    public void RANK가_동일한_카드가_4장씩_1쌍이면_포카드다(){
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(1,Suit.CLUBS),
+                new Card(1,Suit.HEARTS),
+                new Card(1,Suit.DIAMONDS),
+                new Card(1,Suit.SPADES),
+                new Card(2,Suit.CLUBS)
+        );
+        int result = evaluator.evaluate(cardList).getPriority();
+        assertThat(result, is(10));
+    }
+
 }
