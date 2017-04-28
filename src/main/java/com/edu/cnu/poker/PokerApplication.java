@@ -30,6 +30,30 @@ public class PokerApplication {
             com.setFund(com.getFund()-10);
             reward += 20;
             System.out.println("Betted Money : " + reward);
+            
+            for(int i = 0; i < 5; i++){ //complete draw
+                if(i < 3){
+                    you.getHand().drawACard();
+                }
+                com.getHand().drawACard();
+            }
+
+            System.out.println("######## Your Hand ########");
+            you.getHand().showAllCard();
+            System.out.println("######## FIRST CARD of COM ########");
+            com.getHand().showACard(0);
+            System.out.println("######## SECOND CARD of COM ########");
+            com.getHand().showACard(1);
+
+            System.out.println("BET? (B) or DIE? (D) or CHECK? (C)");
+            while(true) {
+                choice = myScanner.next();
+                if (choice.equals("B") || choice.equals("D") || choice.equals("C")) {
+                    break;
+                }
+                else
+                    System.out.println("######## Wrong Input! ########");
+            }
         }
     }
 
