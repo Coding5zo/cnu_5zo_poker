@@ -30,7 +30,7 @@ public class Evaluator {
                 integerMap.put(card.getRank(), 1);
             }
         }
-        
+
         if(getRoyalStraightFlush(suitMap, integerMap)) return Genealogy.ROYAL_STRAIGHT_FLUSH;
         if(getBackStraightFlush(suitMap, integerMap)) return Genealogy.BACK_STRAIGHT_FLUSH;
         if(getStraightFlush(suitMap, integerMap)) return Genealogy.STRAIGHT_FLUSH;
