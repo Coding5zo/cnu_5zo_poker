@@ -54,6 +54,25 @@ public class PokerApplication {
                 else
                     System.out.println("######## Wrong Input! ########");
             }
+            if(choice.equals("B")) {
+                System.out.println("######## Your money : " + you.getFund() + " ########");
+                System.out.println("######## COM money : " + com.getFund() + " ########");
+                System.out.println("How much will you bet? : ");
+                bet_money = myScanner.nextInt();
+                while(true) {
+                    if(bet_money > you.getFund())
+                        System.out.println("######## Not Enough money ########");
+                    else if(bet_money > com.getFund())
+                        System.out.println("######## Computer has not enough money ########");
+                    else
+                        break;
+                }
+                you.setFund(you.getFund()-bet_money);
+                com.setFund(com.getFund()-bet_money);
+                reward += 2 * bet_money;
+                System.out.println("Betted Money : " + reward);
+
+            }
         }
     }
 
