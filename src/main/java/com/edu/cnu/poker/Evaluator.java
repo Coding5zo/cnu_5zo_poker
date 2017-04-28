@@ -31,15 +31,55 @@ public class Evaluator {
             }
         }
 
+        if(getRoyalStraightFlush(suitMap, integerMap)) return Genealogy.ROYAL_STRAIGHT_FLUSH;
+        if(getBackStraightFlush(suitMap, integerMap)) return Genealogy.BACK_STRAIGHT_FLUSH;
+        if(getStraightFlush(suitMap, integerMap)) return Genealogy.STRAIGHT_FLUSH;
+        if(getFourCard(integerMap)) return Genealogy.FOUR_CARD;
+        if(getFullHouse(integerMap)) return Genealogy.FULL_HOUSE;
         if(getFlush(suitMap)) return Genealogy.FLUSH;
+        if(getMountain(integerMap)) return Genealogy.MOUNTAIN;
+        if(getBackStraight(integerMap)) return Genealogy.BACK_STRAIGHT;
         if(getStraight(integerMap)) return Genealogy.STRAIGHT;
         if(getTriple(integerMap)) return Genealogy.TRIPLE;
         if(getTwoPair(integerMap)) return Genealogy.TWO_PAIR;
         if(getOnePair(integerMap)) return Genealogy.ONE_PAIR;
-        if(getMountain(integerMap)) return Genealogy.MOUNTAIN;
-        if(getBackStraight(integerMap)) return Genealogy.BACK_STRAIGHT;
+
 
         return Genealogy.NOTHING;
+    }
+
+    private boolean getRoyalStraightFlush(Map<Suit, Integer> suitMap, Map<Integer, Integer> integerMap){
+        return getFlush(suitMap) && getMountain(integerMap);
+    }
+
+    private boolean getBackStraightFlush(Map<Suit, Integer> suitMap, Map<Integer, Integer> integerMap){
+        return getFlush(suitMap) && getBackStraight(integerMap);
+    }
+
+    private boolean getStraightFlush(Map<Suit, Integer> suitMap, Map<Integer, Integer> integerMap){
+        return getStraight(integerMap) && getFlush(suitMap);
+    }
+
+    private boolean getFourCard(Map<Integer, Integer> integerMap) {
+        for(Integer key : integerMap.keySet()){
+            if(integerMap.get(key) == 4)
+                return true;
+        }
+        return false;
+    }
+
+    private boolean getFullHouse(Map<Integer, Integer> integerMap) {
+        int triple = 0;
+        int pair = 0;
+        for(int key : integerMap.keySet()){
+            if(integerMap.get(key) == 3){
+                triple = key;
+            }
+            if(integerMap.get(key) == 2){
+                pair = key;
+            }
+        }
+        return triple != 0 && pair != 0;
     }
 
     private boolean getBackStraight(Map<Integer, Integer> integerMap){
