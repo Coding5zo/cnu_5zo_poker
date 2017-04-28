@@ -162,4 +162,19 @@ public class EvaluatorTest {
         assertThat(result, is(11));
     }
 
+    @Test
+    public void 스트레이트면서_플러시면서_가장_낮으면_백스트레이트플러시다(){
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(2,Suit.CLUBS),
+                new Card(3,Suit.CLUBS),
+                new Card(4,Suit.CLUBS),
+                new Card(5,Suit.CLUBS),
+                new Card(1,Suit.CLUBS)
+        );
+        int result = evaluator.evaluate(cardList).getPriority();
+        assertThat(result, is(12));
+    }
+
+
 }
